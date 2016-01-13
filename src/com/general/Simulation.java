@@ -9,7 +9,7 @@ import java.awt.image.BufferStrategy;
 public class Simulation extends Canvas implements Runnable
 {
     private Thread thread;
-    private boolean isGameRunning = false;
+    private boolean isSimulationRunning = false;
     private Tribe tribe;
 
     public Simulation()
@@ -29,16 +29,16 @@ public class Simulation extends Canvas implements Runnable
     public void start()
     {
         thread = new Thread(this, "MainThread");
-        if (!isGameRunning)
+        if (!isSimulationRunning)
         {
-            isGameRunning = true;
+            isSimulationRunning = true;
             thread.start();
         }
     }
 
     public void stop()
     {
-        if (isGameRunning)
+        if (isSimulationRunning)
         {
             try
             {
@@ -47,7 +47,7 @@ public class Simulation extends Canvas implements Runnable
             {
                 e.printStackTrace();
             }
-            isGameRunning = false;
+            isSimulationRunning = false;
         }
     }
 
@@ -60,7 +60,7 @@ public class Simulation extends Canvas implements Runnable
         long timer = System.currentTimeMillis();
         int updates = 0;
         int frames = 0;
-        while(isGameRunning){
+        while(isSimulationRunning){
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
@@ -83,6 +83,7 @@ public class Simulation extends Canvas implements Runnable
 
     public void update()
     {
+        tribe.update();
     }
 
     public void render()
@@ -96,6 +97,7 @@ public class Simulation extends Canvas implements Runnable
         }
 
         Graphics g = bs.getDrawGraphics();
+        tribe.render(g);
         g.dispose();
         bs.show();
     }

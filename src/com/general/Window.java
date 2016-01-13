@@ -9,12 +9,13 @@ public class Window
 {
     public Window(Simulation sim)
     {
-        JFrame jFrame = new JFrame(Config.properties.getProperty("title"));
+        JFrame jFrame = new JFrame(Config.title);
 
         jFrame.setSize(new Dimension(
-                Integer.parseInt(Config.properties.getProperty("width")),
-                Integer.parseInt(Config.properties.getProperty("height"))
-        ));
+                Config.width,
+                Config.height)
+        );
+
         jFrame.setResizable(false);
         jFrame.setLocationRelativeTo(null);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

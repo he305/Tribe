@@ -6,7 +6,11 @@ import java.util.Properties;
 
 public class Config
 {
-    public static Properties properties;
+    private static Properties properties;
+    public static int width;
+    public static int height;
+    public static String title;
+
     public static void load()
     {
         properties = new Properties();
@@ -20,5 +24,9 @@ public class Config
         {
             e.printStackTrace();
         }
+
+        width = Integer.parseInt(properties.getProperty("width"));
+        height = Integer.parseInt(properties.getProperty("height"));
+        title = properties.getProperty("title");
     }
 }
