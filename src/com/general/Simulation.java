@@ -1,7 +1,6 @@
 package com.general;
 
 import com.dbs.DBLoader;
-import com.dbs.DBNames;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
