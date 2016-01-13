@@ -1,5 +1,7 @@
 package com.personal;
 
+import com.tools.PersonCreator;
+
 import java.util.ArrayList;
 
 public class Person
@@ -17,20 +19,32 @@ public class Person
     {
         this.age = age;
         this.sex = sex;
-        parents[0] = father;
-        parents[1] = mother;
+        init(father, mother);
         /////
 
         /////
     }
 
+
     public Person(boolean sex, Person father, Person mother)
     {
         this.sex = sex;
-        parents[0] = father;
-        parents[1] = mother;
+        init(father, mother);
         ////
 
         ////
+    }
+
+    private void init(Person father, Person mother)
+    {
+        parents[0] = father;
+        parents[1] = mother;
+
+        name = PersonCreator.createName(sex);
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

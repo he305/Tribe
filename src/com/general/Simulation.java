@@ -1,6 +1,7 @@
 package com.general;
 
 import com.dbs.DBLoader;
+import com.tools.KeyInput;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -9,16 +10,20 @@ public class Simulation extends Canvas implements Runnable
 {
     private Thread thread;
     private boolean isGameRunning = false;
+    private Tribe tribe;
 
     public Simulation()
     {
         init();
         new Window(this);
+        setFocusable(true);
     }
 
     private void init()
     {
         DBLoader.load();
+        tribe = new Tribe();
+        addKeyListener(new KeyInput());
     }
 
     public void start()

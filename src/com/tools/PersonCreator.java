@@ -12,11 +12,11 @@ public class PersonCreator
 
         if (!sex)
         {
-            name = DBNames.getManNames().get(new Random().nextInt(DBNames.getManNames().size()));
+            name = DBNames.getManNames().get(new Random().nextInt(DBNames.getManNames().size()-1));
         }
         else
         {
-            name = DBNames.getWomanNames().get(new Random().nextInt(DBNames.getManNames().size()));
+            name = DBNames.getWomanNames().get(new Random().nextInt(DBNames.getWomanNames().size()-1));
         }
 
         return name;
