@@ -1,3 +1,5 @@
+package com.info;
+
 public class Supplies
 {
     int water;

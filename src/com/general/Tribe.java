@@ -1,3 +1,7 @@
+package com.general;
+
+import com.personal.Person;
+
 import java.util.ArrayList;
 
 public class Tribe
@@ -9,7 +13,7 @@ public class Tribe
         tribe = new ArrayList<>(100);
         for (int i = 0; i < 10; i++)
         {
-            tribe.add(new Person());
+            tribe.add(new Person(false, null, null));
         }
     }
 }
